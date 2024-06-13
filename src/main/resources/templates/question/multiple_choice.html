@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <div th:fragment="multi-choice (question)" id="multiplechoice">
+        <p th:text="${question.prompt}"></p>
+
+        <span th:each="answer: ${question.answers}">
+            <input type="radio" name="ans" th:text="${answer.value}" />
+        </span>
+    </div>
+</body>
+</html>
