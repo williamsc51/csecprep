@@ -20,20 +20,23 @@ public class Question {
     @Enumerated(EnumType.STRING)
     private QuestionTypes type;
 
+    private List<String> subPrompts;
+
     @OneToMany( mappedBy = "question")
     private List<Answer> answers;
 
     @OneToMany(mappedBy = "question")
     private List<Response> responses;
 
-    public Question(Integer id, String prompt, String subject, QuestionTypes type, List<Answer> answers, List<Response> responses) {
+    public Question(Integer id, String prompt, String subject, QuestionTypes type, List<String> subPrompts, List<Answer> answers, List<Response> responses) {
         this.id = id;
         this.prompt = prompt;
         this.subject = subject;
         this.type = type;
+        this.subPrompts = subPrompts;
         this.answers = answers;
         this.responses = responses;
-    };
+    }
 
     public Question(){}
 
@@ -67,6 +70,14 @@ public class Question {
 
     public void setType(QuestionTypes type) {
         this.type = type;
+    }
+
+    public List<String> getSubPrompts() {
+        return subPrompts;
+    }
+
+    public void setSubPrompts(List<String> subPrompts) {
+        this.subPrompts = subPrompts;
     }
 
     public List<Answer> getAnswers() {
