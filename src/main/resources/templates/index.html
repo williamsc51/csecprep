@@ -2,15 +2,31 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Title</title>
     <link rel="stylesheet" th:href="@{/css/main.css}">
     <link rel="stylesheet" th:href="@{/css/main-dev.css}">
 </head>
 <body>
-    <p class="text-red-600">Hellpj</p>
-    <h1>kojjkk</h1>
+    <div class="container mx-auto">
+        <div th:replace="~{main_menu :: nav}"></div>
 
-    <a th:href="@{/questions(subject='mathematics')}">Mathematic</a>
-    <a th:href="@{/questions(subject='biology')}">Biology</a>
+        <div class="bg-slate-700 w-full h-80 rounded-xl flex justify-center items-center">
+            <p class="text-8xl text-slate-200"> 1 + 1 = 2 </p>
+        </div>
+
+       <div class="flex flex-row justify-around gap-x-1 gap-y-20 flex-wrap mt-10">
+           <th:blcok th:each="subject : ${subjects}">
+               <div class="h-96">
+                       <img th:if="${imageHelper.fileExist(subject.getSubject())}" th:src="@{'/images/' + ${subject.getSubject()} + '.png'}" class="max-h-full max-w-full" />
+                       <img th:unless="${imageHelper.fileExist(subject.getSubject())}" th:src="@{/images/placeholder.png}" class="max-h-full max-w-full" />
+                   <a th:href="@{/questions(subject=${subject.getSubject()})}" class="block p-3 bg-slate-700 text-slate-200 text-center">
+                       [[${imageHelper.normalizeTitle(subject.name)}]]
+                   </a>
+                </div>
+           </th:blcok>
+        </div>
+    </div>
 </body>
 </html>
