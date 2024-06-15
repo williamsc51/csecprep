@@ -1,7 +1,7 @@
-package io.cxcprep.controllers;
+package io.csecprep.controllers;
 
-import io.cxcprep.entities.Subjects;
-import io.cxcprep.utility.ViewHelpers;
+import io.csecprep.entities.Subjects;
+import io.csecprep.utility.ViewHelpers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;

@@ -1,6 +1,6 @@
-package io.cxcprep.repositories;
+package io.csecprep.repositories;
 
-import io.cxcprep.entities.Question;
+import io.csecprep.entities.Question;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,6 @@
-package io.cxcprep.controllers;
-import io.cxcprep.entities.Question;
-import io.cxcprep.service.QuestionService;
+package io.csecprep.controllers;
+import io.csecprep.entities.Question;
+import io.csecprep.service.QuestionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package io.cxcprep.entities;
+package io.csecprep.entities;
 
 public enum Subjects {
     MATHEMATICS("mathematics"),

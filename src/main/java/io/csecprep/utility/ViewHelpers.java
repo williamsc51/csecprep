@@ -1,4 +1,4 @@
-package io.cxcprep.utility;
+package io.csecprep.utility;
 
 import java.nio.file.Files;
 import java.nio.file.Path;

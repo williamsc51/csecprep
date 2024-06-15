@@ -1,7 +1,6 @@
-package io.cxcprep.entities;
+package io.csecprep.entities;
 
 import jakarta.persistence.*;
-import org.springframework.lang.Nullable;
 
 import java.util.List;
 

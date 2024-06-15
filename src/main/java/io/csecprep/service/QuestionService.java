@@ -1,7 +1,7 @@
-package io.cxcprep.service;
+package io.csecprep.service;
 
-import io.cxcprep.entities.Question;
-import io.cxcprep.repositories.QuestionRepository;
+import io.csecprep.entities.Question;
+import io.csecprep.repositories.QuestionRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

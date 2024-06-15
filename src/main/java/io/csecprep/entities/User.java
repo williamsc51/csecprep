@@ -1,4 +1,4 @@
-package io.cxcprep.entities;
+package io.csecprep.entities;
 
 import jakarta.persistence.*;
 
