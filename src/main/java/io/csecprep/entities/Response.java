@@ -8,7 +8,7 @@ public class Response {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "question_id")
@@ -18,7 +18,7 @@ public class Response {
     @JoinColumn(name = "answer_id")
     private Answer answer;
 
-    public Response(Integer id, Question question, Answer answer) {
+    public Response(Long id, Question question, Answer answer) {
         this.id = id;
         this.question = question;
         this.answer = answer;
@@ -26,11 +26,11 @@ public class Response {
 
     public Response() {}
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

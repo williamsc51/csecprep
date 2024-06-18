@@ -10,7 +10,7 @@ public class Question {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     private String prompt;
 
@@ -27,7 +27,7 @@ public class Question {
     @OneToMany(mappedBy = "question")
     private List<Response> responses;
 
-    public Question(Integer id, String prompt, String subject, QuestionTypes type, List<String> subPrompts, List<Answer> answers, List<Response> responses) {
+    public Question(Long id, Boolean enabled, String prompt, Subject subject, QuestionTypes type, List<String> subPrompts, List<Answer> answers, List<Response> responses) {
         this.id = id;
         this.prompt = prompt;
         this.subject = subject;
@@ -39,11 +39,11 @@ public class Question {
 
     public Question(){}
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

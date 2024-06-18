@@ -11,7 +11,7 @@ public class Answer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     private String value;
 
@@ -24,7 +24,7 @@ public class Answer {
     @OneToMany(mappedBy = "answer")
     private List<Response> responses;
 
-    public Answer(Integer id, String value, Boolean isCorrect, Question question, List<Response> responses) {
+    public Answer(Long id, String value, Boolean isCorrect, Question question, List<Response> responses) {
         this.id = id;
         this.value = value;
         this.isCorrect = isCorrect;
@@ -34,11 +34,11 @@ public class Answer {
 
     public Answer(){}
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
