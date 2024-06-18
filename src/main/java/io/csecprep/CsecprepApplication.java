@@ -4,10 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CxcprepApplication {
+public class CsecprepApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CxcprepApplication.class, args);
+		SpringApplication.run(CsecprepApplication.class, args);
 	}
 
 }
+
