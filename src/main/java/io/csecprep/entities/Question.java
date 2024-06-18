@@ -1,6 +1,7 @@
 package io.csecprep.entities;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.util.List;
 
@@ -12,6 +13,10 @@ public class Question {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
+    @ColumnDefault("true")
+    private Boolean enabled;
+
+    @Column(nullable = false)
     private String prompt;
 
     private String subject;
@@ -29,6 +34,7 @@ public class Question {
 
     public Question(Long id, Boolean enabled, String prompt, Subject subject, QuestionTypes type, List<String> subPrompts, List<Answer> answers, List<Response> responses) {
         this.id = id;
+        this.enabled = enabled;
         this.prompt = prompt;
         this.subject = subject;
         this.type = type;
@@ -45,6 +51,14 @@ public class Question {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public String getPrompt() {
