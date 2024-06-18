@@ -32,3 +32,9 @@ build/
 ### VS Code ###
 .vscode/
 /src/main/resources/application.properties
+/src/main/resources/application-dev.yml
+/create.sql
+/drop.sql
+# Flyway ignores
+/src/main/resources/db/flyway.user.toml
+/node_modules
