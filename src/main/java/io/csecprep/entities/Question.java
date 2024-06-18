@@ -19,7 +19,9 @@ public class Question {
     @Column(nullable = false)
     private String prompt;
 
-    private String subject;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Subject subject;
 
     @Enumerated(EnumType.STRING)
     private QuestionTypes type;
@@ -69,11 +71,11 @@ public class Question {
         this.prompt = prompt;
     }
 
-    public String getSubject(){
+    public Subject getSubject(){
         return subject;
     }
 
-    public void setSubject(String subject){
+    public void setSubject(Subject subject){
         this.subject = subject;
     }
 
