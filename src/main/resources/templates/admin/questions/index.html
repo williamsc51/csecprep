@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layouts/adminLayout :: adminQuestion(~{::title}, ~{::div})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Questions</title>
+</head>
+<body>
+    <div>
+        <a th:href="@{/admin/questions/new}">New Question</a>
+        <table class="table-auto w-full text-center">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Promtp</th>
+                    <th>Subject</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="question : ${questions}" th:object="${question}">
+                    <td th:text="*{id}"></td>
+                    <td th:text="*{prompt}"></td>
+                    <td th:text="${viewHelpers.normalizeTitle(question.subject)}"></td>
+                    <td th:text="*{type}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

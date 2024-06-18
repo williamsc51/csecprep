@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" th:replace="~{layouts/adminLayout :: adminQuestion(~{::title}, ~{::div})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Question</title>
+</head>
+<body>
+    <div>
+        <form role="form" method="post" th:action="@{/admin/questions}" th:object="${question}" class="flex flex-col p-3">
+            <label>Question Prompt</label>
+            <input type="text" th:field="*{prompt}" class="border-solid border rounded-2xl border-slate-700"/>
+
+            <label>Subject</label>
+            <select th:field="*{subject}">
+                <option th:each="subject : ${T(io.csecprep.entities.Subject).values()}" th:value="${subject}" th:text="${viewHelpers.normalizeTitle(subject)}">Maths</option>
+            </select>
+
+            <label>Question Type</label>
+            <select th:field="*{type}">
+                <option th:each="type : ${T(io.csecprep.entities.QuestionTypes).values()}" th:value="${type}" th:text="${type}">Multiple choice</option>
+            </select>
+
+            <label>Question Sub-parts</label>
+            <input type="text" th:field = "*{subPrompts}" class="border-solid border rounded-2xl border-slate-700"/>
+
+            <button type="submit">CREATE</button>
+            <button type="button">CANCEL</button>
+        </form>
+    </div>
+</body>
+</html>
