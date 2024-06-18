@@ -1,5 +1,6 @@
 package io.csecprep.controllers;
 import io.csecprep.entities.Question;
+import io.csecprep.entities.Subject;
 import io.csecprep.service.QuestionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +20,8 @@ public class QuestionController {
 
     @GetMapping("/questions")
     public String questions(Model model, @RequestParam String subject){
-        List<Question> questions = questionService.getQuestionsBySubject(subject);
+
+        List<Question> questions = questionService.getQuestionsBySubject(Subject.valueOf(subject.toUpperCase()));
 
         model.addAttribute("questions", questions);
 
