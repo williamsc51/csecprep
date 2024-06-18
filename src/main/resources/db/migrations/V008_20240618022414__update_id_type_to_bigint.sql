@@ -1,0 +1,4 @@
+ALTER TABLE questions ALTER COLUMN id TYPE bigint;
+ALTER TABLE answers ALTER COLUMN id TYPE bigint;
+ALTER TABLE responses ALTER COLUMN id TYPE bigint;
+ALTER TABLE users ALTER COLUMN id TYPE bigint;

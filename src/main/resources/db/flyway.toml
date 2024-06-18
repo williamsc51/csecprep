@@ -1,0 +1,26 @@
+databaseType = "PostgreSql"
+id = "c1fa58f7-d9a6-4b92-a2fc-7f3f30e8f330"
+name = "db"
+
+[flyway]
+locations = [ "filesystem:migrations" ]
+mixed = true
+outOfOrder = true
+validateMigrationNaming = true
+
+  [flyway.check]
+  majorTolerance = 0
+
+[flywayDesktop]
+developmentEnvironment = "development"
+schemaModel = "schema-model"
+shadowEnvironment = "shadow"
+
+[redgateCompare]
+filterFile = "filter.rgf"
+
+[redgateCompare.postgresql.options.ignores]
+ignoreNewlinesInTextObjects = "off"
+
+[environments.csecprep]
+url = "jdbc:postgresql://localhost/csecprep_db"

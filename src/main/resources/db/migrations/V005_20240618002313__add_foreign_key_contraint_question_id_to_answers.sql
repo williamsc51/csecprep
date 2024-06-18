@@ -1,0 +1,1 @@
+alter table if exists answers add constraint FK3erw1a3t0r78st8ty27x6v3g1 foreign key (question_id) references questions;
