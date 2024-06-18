@@ -1,6 +1,6 @@
 package io.csecprep.entities;
 
-public enum Subjects {
+public enum Subject {
     MATHEMATICS("mathematics"),
     ENGLISH("english"),
     PHYSICS("physics"),
@@ -19,7 +19,7 @@ public enum Subjects {
 
     private final String subject;
 
-    Subjects(String subject){
+    Subject(String subject){
         this.subject = subject;
     }
 
