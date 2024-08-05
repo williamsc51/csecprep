@@ -1,2 +1,0 @@
-alter table if exists responses add constraint FK559ansv3p2u5p8kvnh535hsnk foreign key (answer_id) references answers;
-alter table if exists responses add constraint FKrln3foyudvklybbdl1r5dmjvy foreign key (question_id) references questions;

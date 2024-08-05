@@ -1,0 +1,1 @@
+alter table if exists sub_parts add constraint FK5e32ab627152e1da8b435587 foreign key (question_id) references questions;

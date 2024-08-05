@@ -1,0 +1,2 @@
+alter table if exists answers add constraint FK17d642db63904e9131379511 foreign key (question_id) references questions;
+alter table if exists answers add constraint FK8d7d5e918760bb891a3f0590 foreign key (user_id) references users;

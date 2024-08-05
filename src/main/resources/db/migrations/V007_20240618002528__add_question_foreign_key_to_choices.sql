@@ -1,0 +1,1 @@
+alter table if exists choices add constraint FKe42082132440b43c81bff52a foreign key (question_id) references questions;

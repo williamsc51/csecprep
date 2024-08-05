@@ -1,7 +1,7 @@
 create table answers (
-    id integer not null,
-    is_correct boolean,
-    question_id integer not null,
-    value varchar(255) not null,
+    id bigint not null,
+    value varchar(255),
+    question_id bigint not null,
+    user_id bigint,
     primary key (id)
 );
