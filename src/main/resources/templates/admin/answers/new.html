@@ -1,0 +1,9 @@
+<div th:fragment="newQuestion (answer, question)">
+    <form th:object="${answer}" th:action="@{/admin/answers}" th:method="post" class="flex flex-col p-3">
+        <input th:hidden="hidden" th:name="question" th:value="${question.id}"></inputl>
+
+        <input type="text" th:field="*{value}" class="border-solid border rounded-lg border-slate-700" />
+
+        <button type="submit" th:text="Create">Add answer option</button>
+    </form>
+</div>

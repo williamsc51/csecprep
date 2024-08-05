@@ -10,26 +10,25 @@ import java.util.List;
 public class Answer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "answers_seq", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.AUTO, generator = "answers_seq")
     private Long id;
 
     private String value;
-
-    private Boolean isCorrect;
 
     @ManyToOne
     @JoinColumn(name = "question_id")
     private Question question;
 
-    @OneToMany(mappedBy = "answer")
-    private List<Response> responses;
+    @ManyToOne
+    @JoinColumn( name = "user_id" )
+    private User user;
 
-    public Answer(Long id, String value, Boolean isCorrect, Question question, List<Response> responses) {
+    public Answer(Long id, String value, Boolean isCorrect, Question question, User user) {
         this.id = id;
         this.value = value;
-        this.isCorrect = isCorrect;
         this.question = question;
-        this.responses = responses;
+        this.user = user;
     }
 
     public Answer(){}
@@ -50,14 +49,6 @@ public class Answer {
         this.value = value;
     }
 
-    public Boolean getCorrect() {
-        return isCorrect;
-    }
-
-    public void setCorrect(Boolean correct) {
-        isCorrect = correct;
-    }
-
     public Question getQuestion() {
         return question;
     }
@@ -66,11 +57,11 @@ public class Answer {
         this.question = question;
     }
 
-    public List<Response> getResponses() {
-        return responses;
+    public User getUser() {
+        return user;
     }
 
-    public void setResponses(List<Response> responses) {
-        this.responses = responses;
+    public void setUser(User user) {
+        this.user = user;
     }
 }
