@@ -1,0 +1,13 @@
+<div th:fragment="newChoice (choice, question)">
+    <form th:object="${choice}" th:action="@{/admin/choices}" th:method="post" class="flex flex-col p-3">
+        <input th:hidden="hidden" th:name="question" th:value="${question.id}"></inputl>
+
+        <label>Choice</label>
+        <input type="text" th:field="*{choiceText}" class="border-solid border rounded-lg border-slate-700" />
+
+        <label>Correct Answer</label>
+        <input type="checkbox" th:field="*{correct}" class="border-solid border rounded-lg border-slate-700" />
+
+        <button type="submit" th:text="Create">Add choice</button>
+    </form>
+</div>
