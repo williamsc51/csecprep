@@ -1,10 +1,7 @@
-<!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="single-value (question)" id="singlevalue" class="m-1.5">
+    <input hidden="hidden" th:id="question" th:value="${question.id}">
+    <p th:text="${question.prompt}"></p>
+    <input type="text" th:id="userInput" class="border-solid border rounded-lg border-slate-700"/>
 
-<body>
-    <div th:fragment="single-value (question)" id="singlevalue">
-        <label th:text="${question.prompt}"></label>
-        <input type="text" />
-    </div>
-</body>
-</html>
+    <button id="checkSingleValue" class="bg-slate-700 border rounded-full text-white p-1">Check Answer</button>
+</div>

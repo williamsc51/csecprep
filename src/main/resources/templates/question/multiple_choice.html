@@ -1,13 +1,14 @@
-<!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-
-<body>
-    <div th:fragment="multi-choice (question)" id="multiplechoice">
-        <p th:text="${question.prompt}"></p>
-
-        <span th:each="answer: ${question.answers}">
-            <input type="radio" name="ans" th:text="${answer.value}" />
-        </span>
+<div th:fragment="multi-choice (question)" id="multiplechoice" class="m-1.5">
+    <input hidden="hidden" th:id="question" th:value="${question.id}">
+    <div th:if="${question.image != null}" class="w-80">
+        <img th:src="@{'/images/' + ${question.image}}" />
     </div>
-</body>
-</html>
+
+    <p th:text="${question.prompt}"></p>
+
+    <div th:each="choice: ${question.choices}" class="flex flex-row">
+        <input type="radio" th:value="${choice.choiceText}" th:text="${choice.choiceText}" th:name="choice">
+    </div>
+
+    <button id="checkMultipleChoice" class="bg-slate-700 border rounded-full text-white p-1">Check Answer</button>
+</div>

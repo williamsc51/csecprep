@@ -1,14 +1,10 @@
-<!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="multi-part (question)" id="multipart" class="m-1.5">
+    <p th:text="${question.prompt}"></p>
 
-<body>
-    <div th:fragment="multi-part (question)" id="multipart">
-        <p th:text="${question.prompt}"></p>
-
-        <div th:each="subprompt: ${question.subPrompts}">
-            <label th:text="${subprompt}"></label><br />
-            <input type="text"/>
-        </div>
+    <div th:each="subPart: ${question.subParts}">
+        <label th:text="${subPart.prompt}"></label><br />
+        <input type="text" th:id="userInput" class="border-solid border rounded-lg border-slate-700"/>
     </div>
-</body>
-</html>
+
+    <button id="check_answer" class="bg-slate-700 border rounded-full text-white p-1">Check Answer</button>
+</div>
