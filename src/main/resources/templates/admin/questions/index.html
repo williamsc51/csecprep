@@ -17,8 +17,12 @@
             </thead>
             <tbody>
                 <tr th:each="question : ${questions}" th:object="${question}">
-                    <td th:text="*{id}"></td>
-                    <td th:text="*{prompt}"></td>
+                    <td >
+                        <a th:href="@{/admin/questions/{id}(id=*{id})}" th:text="*{id}"></a>
+                    </td>
+                    <td>
+                        <a th:href="@{/admin/questions/{id}(id=*{id})}" th:text="*{prompt}"></a>
+                    </td>
                     <td th:text="${viewHelpers.normalizeTitle(question.subject)}"></td>
                     <td th:text="*{type}"></td>
                 </tr>

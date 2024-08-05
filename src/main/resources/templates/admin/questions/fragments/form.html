@@ -1,0 +1,29 @@
+<div th:fragment="questionForm (question)" th:object="${question}" class="flex flex-col p-3">
+    <label>Question Prompt</label>
+    <textarea th:field="*{prompt}" class="border-solid border rounded-lg border-slate-700" rows="5" />
+
+    <label>Enabled</label>
+    <input type="checkbox" th:field="*{enabled}">
+
+    <label>Subject</label>
+    <select th:field="*{subject}">
+        <option th:each="subject : ${T(io.csecprep.entities.Subject).values()}" th:value="${subject}" th:text="${viewHelpers.normalizeTitle(subject)}">Maths</option>
+    </select>
+
+    <label>Year</label>
+    <input type="text" th:field="*{year}" class="border-solid border rounded-lg border-slate-700"/>
+
+    <label>Correct Answer</label>
+    <input type="text" th:field="*{correctAnswer}" class="border-solid border rounded-lg border-slate-700"/>
+
+    <label>Question Type</label>
+    <select th:field="*{type}">
+        <option th:each="type : ${T(io.csecprep.entities.QuestionTypes).values()}" th:value="${type}" th:text="${type}">Multiple choice</option>
+    </select>
+
+    <label>Image</label>
+    <input type="file" th:name="file" accept="image/png, image/jpeg"/>
+
+    <button type="submit" th:text="${question.id == null} ? Create : Update">Button</button>
+    <button type="button" id="cancelButton">Cancel</button>
+</div>

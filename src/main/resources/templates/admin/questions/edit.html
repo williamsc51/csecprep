@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" th:replace="~{layouts/adminLayout :: adminQuestion(~{::title}, ~{::div})}" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" th:replace="~{layouts/adminLayout :: adminQuestion(~{::title}, ~{::form})}" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Title</title>
+    <title>Edit Question</title>
 </head>
 <body>
-    <div>
+    <form role="form" method="post" th:action="@{/admin/questions/{id}(id=${question.id})}" th:object="${question}" enctype="multipart/form-data">
 
-    </div>
+        <div th:replace="~{admin/questions/fragments/form :: questionForm(${question})}"></div>
+        <img th:if="*{image != null}" th:src="@{'/images/'+ *{image}}" />
+    </form>
 </body>
 </html>

@@ -10,7 +10,8 @@ import java.util.List;
 public class Question {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @SequenceGenerator(name = "questions_seq", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.AUTO, generator = "questions_seq")
     private Long id;
 
     @ColumnDefault("true")
@@ -23,26 +24,36 @@ public class Question {
     @Column(nullable = false)
     private Subject subject;
 
+    private String year;
+
     @Enumerated(EnumType.STRING)
     private QuestionTypes type;
 
-    private List<String> subPrompts;
+    private String correctAnswer;
+
+    private String imagePath;
 
     @OneToMany( mappedBy = "question")
     private List<Answer> answers;
 
     @OneToMany(mappedBy = "question")
-    private List<Response> responses;
+    private List<Choice> choices;
 
-    public Question(Long id, Boolean enabled, String prompt, Subject subject, QuestionTypes type, List<String> subPrompts, List<Answer> answers, List<Response> responses) {
+    @OneToMany(mappedBy = "question")
+    private List<SubPart> subParts;
+
+    public Question(Long id, Boolean enabled, String prompt, Subject subject, String year, QuestionTypes type, String correctAnswer, String imagePath, List<SubPart> subParts, List<Answer> answers, List<Choice> choices) {
         this.id = id;
         this.enabled = enabled;
         this.prompt = prompt;
         this.subject = subject;
+        this.year = year;
         this.type = type;
-        this.subPrompts = subPrompts;
+        this.correctAnswer = correctAnswer;
+        this.imagePath = imagePath;
+        this.subParts = subParts;
         this.answers = answers;
-        this.responses = responses;
+        this.choices = choices;
     }
 
     public Question(){}
@@ -79,6 +90,14 @@ public class Question {
         this.subject = subject;
     }
 
+    public void setYear(String year){
+        this.year = year;
+    }
+
+    public String getYear(){
+        return year;
+    }
+
     public QuestionTypes getType() {
         return type;
     }
@@ -87,12 +106,28 @@ public class Question {
         this.type = type;
     }
 
-    public List<String> getSubPrompts() {
-        return subPrompts;
+    public String getCorrectAnswer() {
+        return correctAnswer;
     }
 
-    public void setSubPrompts(List<String> subPrompts) {
-        this.subPrompts = subPrompts;
+    public void setCorrectAnswer(String correctAnswer) {
+        this.correctAnswer = correctAnswer;
+    }
+
+    public String getImage() {
+        return imagePath;
+    }
+
+    public void setImage(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public List<SubPart> getSubParts() {
+        return subParts;
+    }
+
+    public void setSubParts(List<SubPart> subParts) {
+        this.subParts = subParts;
     }
 
     public List<Answer> getAnswers() {
@@ -103,11 +138,12 @@ public class Question {
         this.answers = answers;
     }
 
-    public List<Response> getResponses() {
-        return responses;
+    public List<Choice> getChoices() {
+        return choices;
     }
 
-    public void setResponses(List<Response> responses) {
-        this.responses = responses;
+    public void setChoices(List<Choice> choices) {
+        this.choices = choices;
     }
+
 }
