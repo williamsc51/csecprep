@@ -5,12 +5,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Title</title>
-    <link rel="stylesheet" th:href="@{/css/main.css}">
-    <link rel="stylesheet" th:href="@{/css/main-dev.css}">
+    <link rel="stylesheet" th:href="@{/css/application.css}">
+    <script th:src="@{/javascript/application.js}" defer></script>
 </head>
 <body>
     <div class="container mx-auto">
-        <div th:replace="~{main_menu :: nav}"></div>
 
         <div class="bg-slate-700 w-full h-80 rounded-xl flex justify-center items-center">
             <p class="text-8xl text-slate-200"> 1 + 1 = 2 </p>

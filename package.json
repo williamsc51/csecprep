@@ -1,19 +1,38 @@
 {
   "name": "csecprep",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "CSEC preparation made easy",
   "scripts": {
-    "build:postcss": "NODE_ENV=production postcss src/main/resources/static/css/main.css -o target/classes/static/css/main.css",
-    "watch:postcss": "NODE_ENV=development postcss src/main/resources/static/css/main.css -o src/main/resources/static/css/main-dev.css -w"
+    "devserver": "webpack serve --open --mode development",
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
+    "jquery": "^3.7.1"
+  },
   "devDependencies": {
+    "@babel/core": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
     "autoprefixer": "^10.4.19",
+    "babel-loader": "^9.1.3",
+    "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.0",
+    "mini-css-extract-plugin": "^2.9.0",
     "postcss": "^8.4.38",
     "postcss-cli": "^11.0.0",
-    "tailwindcss": "^3.4.4"
+    "postcss-loader": "^8.1.1",
+    "postcss-preset-env": "^9.5.13",
+    "sass": "^1.77.2",
+    "sass-loader": "^14.2.1",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^3.4.4",
+    "warnings-to-errors-webpack-plugin": "^2.3.0",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
   }
 }
