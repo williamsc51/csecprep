@@ -1,0 +1,13 @@
+<div th:fragment="newSubPart (subPart, question)">
+    <form th:object="${subPart}" th:action="@{/admin/sub_part}" th:method="post" class="flex flex-col p-3">
+        <input th:hidden="hidden" th:name="question" th:value="${question.id}"></inputl>
+
+        <label>Prompt</label>
+        <input type="text" th:field="*{prompt}" class="border-solid border rounded-lg border-slate-700" />
+
+        <label>Correct Answer</label>
+        <input type="text" th:field="*{correctAnswer}" class="border-solid border rounded-lg border-slate-700" />
+
+        <button type="submit" th:text="Create">Add choice</button>
+    </form>
+</div>
