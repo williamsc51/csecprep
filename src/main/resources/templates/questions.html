@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/application.css}">
+    <script th:src="@{/javascript/application.js}" defer></script>
+
+    <title>Questions</title>
+</head>
+<body>
+    <th:block th:each="year : ${years}">
+        <a th:href="@{/exam(subject=${subject},year=${year},pageNumber=0)}" th:text="${year}"></a>
+    </th:block>
+</body>
+</html>

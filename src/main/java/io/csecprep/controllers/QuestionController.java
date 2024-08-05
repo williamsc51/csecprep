@@ -1,5 +1,5 @@
 package io.csecprep.controllers;
-import io.csecprep.entities.Question;
+
 import io.csecprep.entities.Subject;
 import io.csecprep.service.QuestionService;
 import org.springframework.stereotype.Controller;
@@ -11,20 +11,19 @@ import java.util.List;
 
 @Controller
 public class QuestionController {
+    private QuestionService questionService;
 
-    private final QuestionService questionService;
-
-    public QuestionController(QuestionService questionService){
+    QuestionController(QuestionService questionService){
         this.questionService = questionService;
     }
 
     @GetMapping("/questions")
-    public String questions(Model model, @RequestParam String subject){
+    public String question(Model model, @RequestParam String subject){
+        List<String> years = questionService.uniqueYearsBySubject(Subject.valueOf(subject.toUpperCase()));
 
-        List<Question> questions = questionService.getQuestionsBySubject(Subject.valueOf(subject.toUpperCase()));
+        model.addAttribute("years", years);
+        model.addAttribute("subject", subject);
 
-        model.addAttribute("questions", questions);
-
-        return "question";
+        return "questions";
     }
 }
