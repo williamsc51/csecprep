@@ -38,3 +38,5 @@ build/
 # Flyway ignores
 /src/main/resources/db/flyway.user.toml
 /node_modules
+/node
+/src/main/resources/static/images/question_images
